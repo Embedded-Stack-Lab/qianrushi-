@@ -5,7 +5,7 @@
 
 第一个问题是：没有正确的进行文件的创建
 
-出现了这个情况，导致我以为自己的电脑没有装stm32 的芯片支持包。 ![image.jpg](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/155685023/ddb70557-bcb4-4f4f-a7a6-2fa2506566ba/image.jpg?AWSAccessKeyId=ASIA2F3EMEYEYT62ROSI&Signature=5fIbIjD88LP8ZkCPctu6SNHeACo%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIQCe2mMNLFWplAFFRC%2BF84JijU0ceKvYzV4wvs%2F8NRk3GAIgDswwreuFM8%2BQ6IuHAqLy84Zn8ZKYxm%2FPxTd2bwB0Xj0q%2FAQI5%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDHpyI1HqD8phBbWxlirQBH5h4KF8KcRscbTNIQvtsiuAbJQofzs%2B6GLUM%2FpR3fts6T185IlKhWkPn%2BFfyCUyipf32DAooXgJl8QEGcJy3Jkvv1jhecfEXMBvcN4rFbJNbWkp%2FbalsTCBZiVtxJ1QIwZ9EivuI8KUI4GYboYr8i7k%2BrOWACzKc6S1OxYwLIsv0b5bvtnCssgyFW3%2BTXqObTrRXLtInQYqNRuWUeYzqkVtS%2B6FurDyPAPLnNKW9XKKk1QxzdLs9l%2Bqr4qoR96DNdNl2t2E2KFSk9LuqYd0fH8ykKIgseP8GBG%2BdGXShdGqRSHkB%2BZQi2%2B8Je5jJXOdNLaPTIS4M4yNZ78tG5nHjB4d1bExL5as1CKxKqiaWQsJ1%2BjtLWevLTdr%2B%2BdOiHUs%2F1tHStUSgDqPsxwhhEwfAFIa5GKALjTLeXHLoRQ8RgI3EjGDXCzfMSqmmumduaoThDpXgJjKwyqXqwN0lezVxKDBdSGCd2xKiB9kXbGqMw1OnZDALRH0BPB45n0MXMoLyd%2BZ1tmAHVAV3NzzBY16WHEpJKs%2FlFMsw%2Ffblg%2BCbbTVe8wSWPWu1zrU5U026B8w2teswMt9rB0DKNVNtRDZZArcWiHp%2BLXnOrSkpBDQcPLVy35qQwHOzpyuaXhWvEYRurtrbf6Uw826%2BnQtVy6EDdF7hTgjuxoNtBpLKcfPGt%2BsRWV9GjyPLtrBPDCAJ57MhpQ0B6tWwP9eZ%2BSvNmQY4PX0Q4Oo%2F8iY2EpkAiK1br%2FWLDAHf%2BkRZd0s1Mbb1gy%2BPx5nXnOGjOkb1ZsnTVTcczgwnu7ZygY6mAFhgvXxXF4GY2q3WNp17QHPL508inIv3UE5ZEURsPUGluNWB2wbPl5n8ctcBvRfyj8T9uquPalMqAAVtDJglwCMwlqEOxVZuLMUDXlw%2F7m2oCXrjrkNLFItdZEqA%2Bv4KAFvO7bB5dqg9PtLb91mG1UoXeyIIPLS8OvJBK4MfUn8BkdahZlef5D3fnLQUyg9gWBbRPXqVAk%2BCw%3D%3D&Expires=1767275972) 
+出现了这个情况，导致我以为自己的电脑没有装stm32 的芯片支持包。  ![image.jpg](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/155685023/ddb70557-bcb4-4f4f-a7a6-2fa2506566ba/image.jpg?AWSAccessKeyId=ASIA2F3EMEYESJA3UXU2&Signature=jXe9I1bDcEorDn1yD%2FsQkEK3Hdo%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEDcaCXVzLWVhc3QtMSJHMEUCIQD0%2FJPTSNAfT7slxZATmkPw2EM5joBQpH44Y8i3rLySAQIgMi3w5LiH7qE4F9B6hYMtdCj36g0RJaCynjWPd%2F3rRpEq%2FAQI%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDBpeZ7BSsiwSoOUgICrQBH9n%2FRlJrthe2P%2FWLma5GMrPzCKyEwKTQkCGtMd7UB69bufpg6obXbwYWPF30vye50kXp3lSxhQRrvcV91fpyB4w58%2BUK5tAuU7XKVtdyrWcld4fKe%2BQ5gE8tjuqoExizCmf5keYerxTZoJ8KSgbpFDpb7q9jqgwQJ%2B750bEunXvwds3hvuxnd7BUN9ExlAnQ7H5mizvXVVcGFBZd4Rog5JlAgVWkqDwa8llJnrv8fNonnAm4ywnLhW7zAe18Ds9iVFQ7xhJ%2FtrrJaGYawYbvp5ft2SJuwwUaXLSigmiYYZJ0KdN7IrxmfBv81ZP3BwPt2UEn1Lg6oM1WSNix4lOJDMwMmnNiYVuywM0Fd5Pvc%2BpIglYi5Qro%2FrBpaElCuY99UqgGbLPgVOD7B55QLh32Jo0KUxek0yIRA2ZfhSE0WaE85TPcEuDCozm3m4iwZouOs8EMk7aJG8drwDIudTTM7%2FeYi4VeMfFg1eCbYesKkABgq%2FOXYjgjRy%2FPuv%2BQvrQgiQMYDefbXxzbRznhmZRZd3fJBC3vUls8PNE6iGu5rfRQZ%2Buemcs2Xkv0YcihENWdzRhGkfI5qaKlW%2B0H%2BB05z9AIC2QOHjiJ99wG78Kv7v02vXqXKmntsZOeOGgP11JUsyXbB3%2Bz6LQkbyyuLouRjNK2IcR3cCPM3aW%2FYDCX8MXKJH7bEuidSqmTiEuizz%2FM%2BI4ljiWQUokfn05ho5rf0mrp7xs%2F5IxE19xULb%2BmvW6LyAaIc%2FbsUmlQDZw7AJipLm9zsX%2FHy%2FwmG%2FnQQhZEC4wm6HfygY6mAHECTOSq%2F0bA0tGUGhFtQzFaofPaJVsyx98%2Fah%2FP9w4uZx17TnMnqRBftWKEqN69nxGSYZ47XQ4cU9RYXIg0QCZwEGl5ov7yaagGLzJungVIxTbrzffqt6Hn0TK%2FQNP37LOqrW4NfoUO5woRbNOdhYv8gcDOMC2NZo7znPgiyCGL8JqoeybCDtbGzitHoFObM%2BWv6TkAIINnw%3D%3D&Expires=1767364093) 
 
 关闭这个界面，然后重新创建一个工程，就不会出现这个问题。
 
@@ -99,3 +99,36 @@ Build Time Elapsed: 00:00:11
 5、Objects 文件夹: 编译生成文件（中间/输出文件),这是Keil MDK编译生成的中间文件和输出文件夹，包含编译、链接后的产物。(Objects文件夹可以完全删除，重新编译时会自动生成。这是临时编译文件，不需要版本控制。)
 
 6、Listings 文件夹 - 编译列表文件。()
+
+
+
+
+
+2026年1月3日2026年1月2号
+
+浏览了野火stm32初级教程前三章的内容：
+
+第一章 介绍配套开发板的使用，keil的一些相关的功能和j-link下载。
+
+第二章 主要说的是jlink、keil的安装和芯片的安装包，以及创建一个新的工程和里面的相关文件是干啥的。
+
+第三章 进行新工程的创建，我需要重点看一下keil的仿真调试，因为我很少调试过这些，并将自己写的模板工程点亮一个led小灯进行了一个调试，进去看了一些可以进去看到一些相关的函数。发现一个问题就是在函数跳转到初始化的时候，会卡死。原因是：自己对于仿真调试的三个按键不够了解，首先先了解这三个按键
+
+Step (Step Into) ： 逐语句每一行都要进去执行，当你怀疑某个具体函数（比如自己写的 LED_On()）内部逻辑有问题，想进去一行一行检查细节时。
+
+Step Over ：逐个函数执行，比如你调用了自己定义的某个函数，你确信这个库函数没问题，不想浪费时间进去看它怎么置位寄存器，就点这个按钮直接“跨”过去。
+
+Step Out ：跳出某个函数，你不小心用“Step Into”进了一个很长的库函数（比如 printf 实现），发现里面有几百行代码，不想一行一行按了，就点这个按钮直接跳出来。
+
+今天遇到的这个情况是：在 main 函数的主循环里点这个。因为 main 函数通常是死循环，永远不会“Return”，点这个等于全速运行，会导致调试器看起来“卡死”。
+
+
+
+| 按钮     | 名称      | 执行动作       | 进入函数       | 相关的场景                           |
+| -------- | --------- | -------------- | -------------- | ------------------------------------ |
+| F11      | step into | 向下或进入内部 | 进入函数内部   | 底层细节以及自己写的函数             |
+| F10      | step over | 向下           | 直接运行完函数 | 查看主逻辑流程以及跳过已知正确的函数 |
+| Ctrl+F11 | step out  | 向外           | 立即做完并返回 | 进入一个长函数向退出                 |
+
+
+最后写了一个流水灯，我才了解到标准库没有延时含糊需要用Systick系统滴答定时器来写。还未进行分层，以及了解gpio引脚的输入输出模式。
