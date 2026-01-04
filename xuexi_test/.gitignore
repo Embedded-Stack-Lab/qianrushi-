@@ -1,13 +1,50 @@
 # Keil uVision 蹇界暐瑙勫垯
-*.uvoptx
-*.uvguix.*
-*.scvd
-*.iex
-*.htm
-*.map
-*.obj
-*.lst
+#*.uvoptx
+#*.uvguix.*
+#*.scvd
+#*.iex
+#*.htm
+#*.map
+#*.obj
+#*.lst
 
-# 蹇界暐缂栬瘧鐢熸垚鐨勬枃浠跺す (閫氬父鏄繖涓や釜)
+# 蹇界暐缂栬瘧鐢熸垚鐨勬枃浠跺す (閫氬父鏄?杩欎袱涓?)
+#Objects/
+#Listings/
+
+####版本二
+# ==========================================
+# Keil MDK 忽略规则 (已开启保留配置)
+# ==========================================
+
+# 1. 忽略编译生成的垃圾文件夹
 Objects/
 Listings/
+
+# 2. 忽略 Keil 的界面布局文件 (窗口位置，不需要上传)
+*.uvguix.*
+*.scvd
+
+# 3. 忽略调试过程中的临时文件
+*.dep
+*.bak
+JLinkLog.txt
+
+# 4. 忽略 VS Code / EIDE 插件缓存
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.eide/
+
+# ==========================================
+# 关键设置
+# ==========================================
+
+# [选项 A]: 我已经把下面这行加了井号(#)注释掉了。
+# 这意味着 Git 现在会【保留】并上传你的调试配置(.uvoptx)
+# 你的"Reset and Run"等下载设置以后都会被保存！
+# *.uvoptx
+
+# [选项 B]: 忽略生成的固件 (如果你想上传 hex，就把下面这行删掉)
+#*.hex
