@@ -7,7 +7,9 @@
     "settings": {
         "files.associations": {
             "*.c": "c",
-            "stm32f10x.h": "c"
+            "stm32f10x.h": "c",
+            "inf_led.h": "c",
+            "delay.h": "c"
         }
     },
     "extensions": {}
