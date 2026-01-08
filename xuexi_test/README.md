@@ -365,5 +365,86 @@ LED具体代码分析：
 
   <img width="896" height="345" alt="Image" src="https://github.com/user-attachments/assets/a94096a7-69d9-4104-837b-e6d7e1bb6c28" />
 
-
   总结今天将昨天后面那部分给看完了，知道这些结构体里面都写的是那些内容。
+
+
+
+2026年1月8日
+
+1.在这个初始化代码中：函数初始化中GPIO_InitTypeDef， GPIO_InitStructure;利用库，定义一个名为GPIO_InitStructuref的结构体，结构体的类型为GPIO_InitTypeDef。结构体就是库文件利用关键字typedef封装的新类型。用到stm32f10x_gpio.h这个库中 如图示：
+<img width="990" height="395" alt="Image" src="https://github.com/user-attachments/assets/b3ef212f-fb8f-45a6-9102-fee7fdce6ede" />
+这个结构体内有三个成员：GPIO_Pin,GPIO_Speed,GPIO_Mode
+
+uint16_t类型的GPIO_Pin为我们将选择配置的引脚，这些stm32f10x_gpio.h文件中有如下定义：
+<img width="820" height="445" alt="Image" src="https://github.com/user-attachments/assets/c480c796-59cc-4426-84e4-c65837f6ec0b" />
+这些宏的值，就是允许我们给结构体成员 GPIO_Pin 赋的值，如我们给GPIO_Pin 赋值为宏 GPIO_Pin_0，表示我们选择了 GPIO 端口的第 0 个引脚，在后面会通过一个函数把这些宏的值进行处理，设置相应的寄存器，实现我们
+对 GPIO 端口的配置。意义为我们将要选择 GPIO的 Pin0、Pin1、Pin8 引脚进行配置。
+
+GPIOSpeed_TypeDef 和 GPIOMode_TypeDef 又是两个库定义的新类型，GPIOSpeed_TypeDef 原型如下：
+
+<img width="251" height="170" alt="Image" src="https://github.com/user-attachments/assets/7b59a668-8882-46ec-ad95-444f8790c292" />
+
+GPIO_Speed_10MHz=1，GPIO_Speed_2MHz=2，GPIO_Speed_50MHz=3。这些常量可用于标识 GPIO 引脚可以配置成的各个最高速度。所以我们在为结构体中的 GPIO_Speed 赋值的时候，就可以直接用这些含义清晰的枚举标识符了。如 led.c 代码中的第 38 行，给GPIO_Speed 赋值为 3，意义为使其最高频率可达到 50MHz。
+
+GPIOMode_TypeDef 也是一个枚举类型定义符，原型如下：
+
+<img width="970" height="470" alt="Image" src="https://github.com/user-attachments/assets/5f9ba0a7-8a53-4a5a-bc0b-f5a3fe69f40b" />
+这个枚举类型也定义了很多含义清晰的枚举常量，是用来帮助配置 GPIO引脚的模式的，如 GPIO_Mode_AIN 意义为模拟输入、GPIO_Mode_IN_FLOATING 为浮空输入模式。
+我们可以总结 GPIO_InitTypeDef 类型结构体的作用，整个结构体包含 GPIO_Pin 、GPIO_Speed、GPIO_Mode 三个成员，我们对这三个成员赋予不同的数值可以对 GPIO 端口进行不同的配置，而这些可配置的数值，已
+经由 ST 的库文件封装成见名知义的枚举常量。
+
+2.初始化库函数——GPIO_Init()
+
+- 在这个函数的内部，实现了把输入的这些参数按照一定的规则转化，进而写入寄存器，实现了配置 GPIO 端口的功能。
+
+- 在我们应用库函数的时候，只需要知道它的功能及输入什么类型的参数，允许的参数值就足够了，这些我们都可以能通过查找库帮助文档获得，或者从官方提供的demo中寻找。
+
+3.开启外设时钟，启动文件及SystemInit()解析
+
+在 startup_stm32f10x_hd.s 启动文件中
+
+```
+;Reset_Handler 子程序开始
+2. Reset_Handler PROC
+3.
+4. ;输出子程序 Reset_Handler 到外部文件
+5. EXPORT Reset_Handler [WEAK]
+6.
+7. ;从外部文件中引入 main 函数
+8. IMPORT __main 
+9.
+10. ;从外部文件引入 SystemInit 函数
+11. IMPORT SystemInit
+12.
+13. ;把 SystemInit 函数调用地址加载到通用寄存器 r0
+14. LDR R0, =SystemInit
+15.
+16. ;跳转到 r0 中保存的地址执行程序（调用 SystemInit 函数）
+17. BLX R0
+18.
+19. ;把 main 函数调用地址加载到通用寄存器 r0
+20. LDR R0, =__main
+21.
+22. ;跳转到 r0 中保存的地址执行程序（调用 main 函数）
+23. BX R0 
+24.
+25. ;Reset_Handler 子程序结束
+26. ENDP
+```
+
+注意啊，这里面有个启动文件还未搞懂，注意
+当芯片被复位(包括上电复位)的时候，将开始运行这一段代码，运行过程为先调用了 SystemInit()函数，再进入 c 语言中的 main 函数执行。
+
+这个函数的定义在 system_stm32f10x.c 文件之中。它的作用是设置系统时钟 SYSCLK。函数的执行流程是先将与配置时钟相关的寄存器都复位为默认值，复位寄存器后，调用了另外一个函数 SetSysClock()，SetSysClock()代码如下：
+
+<img width="602" height="364" alt="Image" src="https://github.com/user-attachments/assets/6e3e3bd2-cb14-4ce1-bce6-974cb044ef3e" />
+
+从 SetSysClock()代码可以知道，它是根据我们设置的条件编译宏来进行不同的时钟配置的。
+
+在 system_stm32f10x.c 文件的开头，已经默认有了如下的条件编译定义：
+<img width="445" height="685" alt="Image" src="https://github.com/user-attachments/assets/01ae752e-9467-4183-9099-27791649e428" />
+
+SYSCLK_FREQ_72MHz 条件编译的标识符，所以在SetSysClock()函数中将调用 SetSysClockTo72()函数把芯片的系统时钟SYSCLK 设置为 72MHz 当然，前提是输入的外部时钟源 HSE 的振荡频率要为8MHz。
+
+
+总结：首先复习了一下昨天所看的，并补充了一下笔记，今天看着部分未做，因为再回过头整理时，发现里面的部分代码未点击去了解，gpio初始化中比较重要的部分是，对于寄存器的某一位进行一个操作，将某一位置零，需将1位移到对应的位置，然后取反进行一个与操作。置一的话只需将1位移对应的位置进行一个或操作。
