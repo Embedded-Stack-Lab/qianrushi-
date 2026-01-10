@@ -5,6 +5,7 @@ int main()
 
     LED_Init();
     Delay_Init();
+    SystemInit();
 
     while (1) {
         for (int i = 1; i < 4; i++) {

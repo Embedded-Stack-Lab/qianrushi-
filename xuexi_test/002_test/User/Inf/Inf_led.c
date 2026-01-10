@@ -2,8 +2,8 @@
 
 void LED_Init(void)
 {
-
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);				// 打开时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+	// 打开时钟
 	GPIO_InitTypeDef GPIO_InitStructure;								// 定义结构体变量
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;					// 推挽输出
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_8; // 选择引脚

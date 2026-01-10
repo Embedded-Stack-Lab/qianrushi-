@@ -3,7 +3,7 @@ int fac_ms; // 毫秒延时倍数
 void Delay_Init(void)
 {
 
-	SysTick
+	
 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8); // 选择时钟源为HCLK/8
 	fac_ms = SystemCoreClock / 8000;					  // 每毫秒的计数次数
 }
