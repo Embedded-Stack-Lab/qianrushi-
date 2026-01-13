@@ -1,5 +1,6 @@
 #include "Inf/Inf_key.h"
 #include "Inf/Inf_led.h"
+#include"stm32f10x_gpio.h"
 int main()
 {
 
@@ -27,7 +28,7 @@ int main()
 
         if(GPIO_ReadInputDataBit(GPIOF,GPIO_Pin_8)==SET){
             Delay_ms(15);
-            GPIO_
+            GPIO_WriteBit(GPIOA,GPIO_Pin_8,1);
         }
 
      

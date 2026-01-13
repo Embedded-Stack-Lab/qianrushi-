@@ -1,4 +1,4 @@
-#include"Inf_led.h"
+#include "Inf_led.h"
 
 void LED_Init(void)
 {
@@ -71,4 +71,13 @@ void Led_on(u8 led_num)
 	default:
 		break;
 	}
+}
+
+void LED_ToggleBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+{
+	uint16_t odr = GPIOx->ODR;
+
+	GPIOx->BSRR = (odr & GPIO_Pin) << 16 | (~odr & GPIO_Pin);
+
+	// GPIOx->ODR ^=GPIO_Pin;
 }
