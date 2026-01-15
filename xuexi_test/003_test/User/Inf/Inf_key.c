@@ -8,7 +8,7 @@ void Inf_Key_Init(void){
 
     GPIO_InitStructure.GPIO_Pin=GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11;
 
-    GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IPU;//设置输出模式
+    GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IPU;//上拉输入
 
     GPIO_Init(GPIOF,&GPIO_InitStructure);
 

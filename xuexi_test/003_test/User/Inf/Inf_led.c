@@ -75,9 +75,11 @@ void Led_on(u8 led_num)
 
 void LED_ToggleBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
-	uint16_t odr = GPIOx->ODR;
+	// uint16_t odr = GPIOx->ODR;// 读取当前输出状态
 
-	GPIOx->BSRR = (odr & GPIO_Pin) << 16 | (~odr & GPIO_Pin);
+	// GPIOx->BSRR = (odr & GPIO_Pin) << 16 | (~odr & GPIO_Pin);// 利用BSRR寄存器翻转
 
-	// GPIOx->ODR ^=GPIO_Pin;
+	// GPIOx->ODR ^= GPIO_Pin;// 直接异或翻转
+
+	GPIO_WriteBit(GPIOx, GPIO_Pin, (BitAction)((1 - GPIO_ReadOutputDataBit(GPIOx, GPIO_Pin))));// 读取当前状态然后写入相反值
 }

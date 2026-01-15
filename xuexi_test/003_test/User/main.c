@@ -10,15 +10,14 @@ int main()
     Delay_Init();
     SystemInit();
     Inf_Key_Init();
-    
+
     // Inf_uart_sendchar(USART1,'o');
-	
-	
-	// Inf_uart_sendstring(USART1,"JLKJKLJ;L");
+
+    // Inf_uart_sendstring(USART1,"JLKJKLJ;L");
 
     //  Inf_uart_receive(USART1);
 
-    debug_printf("opipio--");
+    // debug_printf("opipio--");
     Led_off(1);
     Led_off(2);
     Led_off(3);
@@ -39,10 +38,12 @@ int main()
         if (GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_8) == RESET)
         {
 
-            Delay_ms(15);
-           
-            GPIO_WriteBit(GPIOA,GPIO_Pin_0,0);
-					 debug_printf("按键按下-----\r\n");
+            Delay_ms(100);
+            LED_ToggleBits(GPIOA, GPIO_Pin_0);
+            LED_ToggleBits(GPIOA, GPIO_Pin_1);
+            LED_ToggleBits(GPIOA, GPIO_Pin_8);
+            // GPIO_WriteBit(GPIOA,GPIO_Pin_0,0);
+            debug_printf("按键按下-----\r\n");
         }
     }
 }
