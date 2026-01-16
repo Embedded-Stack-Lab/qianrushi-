@@ -625,3 +625,14 @@ P沟道符号的箭头从栅极指向源极，反向表示N型衬底指向P型�
 ```
 
 而文档上则是读取当前的状态，然后写入返回值，还有在设置浮空输入是不用设置最大速度，gpio_init函数会自动忽略它的。然后看了中断和中断异常，了解中断向量表。
+
+
+
+2026年1月15日
+
+中断控制器 NVIC (Nested Vectored Interrupt Controller)。NVIC 是属于 Cortex 内核的器件，不可屏蔽中断 (NMI)和外部中断都由它来处理，而 SYSTICK 不是由 NVIC 来控制的。STM32 的中断向量具有两个属性，一个为抢占属性，另一个为响应属性，其属性编号越小，表明它的优先级别越高。
+<img width="737" height="488" alt="Image" src="https://github.com/user-attachments/assets/0f83590a-9715-4ddb-b8c3-f9dbaf5e13f2" />*Modules->
+STM32F10x_StdPeriph_Driver-* misc* 查找到一个 *NVIC_Init()* 函数，对 NVIC 初始化，首先要定义并填充一个 NVIC_InitTypeDef* 类型的结构体。
+首先要用 NVIC_IRQChannel 参数来选择将要配置的中断向量，用 NVIC_IRQChannelCmd 参数来进行使能(ENABLE)或关闭（DISABLE）该中断。在 NVIC_IRQChannelPreemptionPriority 成员要配置。
+中断向量的抢占优先级，在 NVIC_IRQChannelSubPriority 需要配置中断向量的响应优先级。
+
