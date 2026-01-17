@@ -636,3 +636,39 @@ STM32F10x_StdPeriph_Driver-* misc* 查找到一个 *NVIC_Init()* 函数，对 NV
 首先要用 NVIC_IRQChannel 参数来选择将要配置的中断向量，用 NVIC_IRQChannelCmd 参数来进行使能(ENABLE)或关闭（DISABLE）该中断。在 NVIC_IRQChannelPreemptionPriority 成员要配置。
 中断向量的抢占优先级，在 NVIC_IRQChannelSubPriority 需要配置中断向量的响应优先级。
 
+2026年1月16日
+
+1.STM32 的中断向量具有两个属性，一个为抢占属性，另一个为响应属性，其属性编号越小，表明它的优先级别越高。
+
+2.抢占，是指打断其它中断的属性，即因为具有这个属性，会出现嵌套中断(在执行中断服务函数 A 的过程中被中断 B 打断，执行完中断服务函数 B 再继续执行中断服务函数 A)，抢占属性由NVIC_IRQChannelPreemptionPriority 的参数配置。而响应属性则应用在抢占属性相同的情况下，当两个中断向量的抢占优先级相同时，如果两个中断同时到达，则先处理响应优先级高的中断，响应属性由 NVIC_IRQChannelSubPriority 的参数配置。
+
+3.Cortex‑M3/M4 内核给每个中断分配 8 位优先级寄存器字段，但STM32 只实现了高 4 位，所以只有 16 个有效优先级等级（0–15）。这 4 个有效位可以再拆成两部分：一部分用于抢占优先（Preemption Priority），一部分用于 子 优先级（SubPriority）。
+
+4.NVIC 中“数值越小优先级越高”，0 是最高优先级，15 是最低优先级。判断谁先响应该看：先比抢占优先级；如果相同，再比子优先级；如果还相同，再看中断向量号（通道号）谁小谁先。
+5.配置中断通道用到了定时器2
+
+```
+NVIC_InitTypeDef NVIC_InitStructure;
+
+NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;                 // 选择中断通道
+NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;       // 抢占优先级（0 最高）
+NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;              // 子优先级
+NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;                 // 使能
+NVIC_Init(&NVIC_InitStructure);
+```
+
+6.设计优先级策略示例
+
+- 抢占 0：最关键实时中断（如高精度定时、紧急故障处理）。
+
+- 抢占 1：一般实时（如通信接收、主控定时）。
+
+
+- 抢占 2：低实时性（如按键扫描、状态刷新）。
+
+  
+
+同一抢占级内部再用子优先级区分谁先服务。
+
+看了外部中断，明天上传代码。
+
