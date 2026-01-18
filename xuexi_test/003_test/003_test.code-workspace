@@ -4,11 +4,6 @@
             "path": "."
         }
     ],
-    "settings": {
-        "files.associations": {
-            "*.c": "c",
-            "common_debug.h": "c"
-        }
-    },
+    "settings": {},
     "extensions": {}
 }

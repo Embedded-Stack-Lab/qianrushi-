@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\User\Inf;.\User\Delay;.\User\common</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\User\Inf;.\User\Delay;.\User\common;.\Driver</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -623,6 +623,21 @@
               <FileName>common_debug.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\User\common\common_debug.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Dri\exti</GroupName>
+          <Files>
+            <File>
+              <FileName>Dri_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Dri_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dri_exti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Driver\Dri_exti.h</FilePath>
             </File>
           </Files>
         </Group>

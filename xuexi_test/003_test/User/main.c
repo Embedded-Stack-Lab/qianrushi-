@@ -2,6 +2,7 @@
 #include "Inf/Inf_led.h"
 #include "stm32f10x_gpio.h"
 #include "common_debug.h"
+#include "Dri_exti.h"
 int main()
 {
 
@@ -35,15 +36,21 @@ int main()
         // Inf_Key_Checkswitch(GPIOF, GPIO_Pin_10);
         // Inf_Key_Checkswitch(GPIOF, GPIO_Pin_11);
 
-        if (GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_8) == RESET)
-        {
+        // // Inf_Key_Scan();
+        // if (GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_8) == RESET)
+        // {
 
-            Delay_ms(100);
-            LED_ToggleBits(GPIOA, GPIO_Pin_0);
-            LED_ToggleBits(GPIOA, GPIO_Pin_1);
-            LED_ToggleBits(GPIOA, GPIO_Pin_8);
-            // GPIO_WriteBit(GPIOA,GPIO_Pin_0,0);
-            debug_printf("按键按下-----\r\n");
-        }
+        //     Delay_ms(100);
+        //     LED_ToggleBits(GPIOA, GPIO_Pin_0);
+        //     LED_ToggleBits(GPIOA, GPIO_Pin_1);
+        //     LED_ToggleBits(GPIOA, GPIO_Pin_8);
+        //     // GPIO_WriteBit(GPIOA,GPIO_Pin_0,0);
+        //     debug_printf("按键按下-----\r\n");
+        // }
+
+
+        LED_Init();
+       // Led_on(2);
+        Dri_EXT8_Config();
     }
 }
