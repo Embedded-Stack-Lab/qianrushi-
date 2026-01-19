@@ -685,3 +685,78 @@ PA0~PG0 连接到 EXTI0 、PA1~PG1 连接到EXTI1、 ……、 PA15~PG15 连接�
 
 3.总结发现用按键中断来电灯比之前用按键延时的效果要好。
 延时方案 = CPU 一直盯着表等时间；中断方案 = 有事再叫 CPU，所以中断方式自然更灵敏、效果也更好。
+
+
+
+
+
+2026年1月19日
+
+1.下面是完成了一般配置一个 I/O 为 EXTI 中断的步骤，主要为功能：
+
+1. 使能 EXTIx 线的时钟和第二功能 AFIO 时钟
+2. 配置 EXTIx 线的中断优先级
+3. 配置 EXTI 中断线 I/O
+4. 选定要配置为 EXTI 的 I/O 口线和 I/O 口的工作模式
+5. EXTI 中断线工作模式配置
+
+```
+
+    GPIO_InitTypeDef GPIO_InitStructure;
+    EXTI_InitTypeDef EXTI_InitStructure;
+
+    // 使能 GPIOF 和 AFIO 时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF|RCC_APB2Periph_AFIO,ENABLE);
+
+    // 配置 PF8 为上拉输入
+    GPIO_InitStructure.GPIO_Pin=GPIO_Pin_8;
+    GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IPU;
+    GPIO_Init(GPIOF,&GPIO_InitStructure);//初始化 GPIOF8
+   
+    // 连接 EXTI8 到 PF8
+    NVIC_Configuration();
+
+    /*
+    * 配置 EXTI Line8
+    *   选择 EXTI8
+    *   中断模式
+    *  下降沿触发
+    *  使能 EXTI8
+    *  GPIO_EXTILineConfig();
+    *    
+    *   
+    */
+    GPIO_EXTILineConfig(GPIO_PortSourceGPIOF,GPIO_PinSource8);
+    EXTI_InitStructure.EXTI_Line=EXTI_Line8;//选择 EXTI8
+    EXTI_InitStructure.EXTI_Mode=EXTI_Mode_Interrupt;//中断模式
+    EXTI_InitStructure.EXTI_Trigger=EXTI_Trigger_Falling;//下降沿触发
+    EXTI_InitStructure.EXTI_LineCmd=ENABLE;//使能 EXTI8     
+    EXTI_Init(&EXTI_InitStructure);//根据 EXTI_InitStructure 结构体初始化 EXTI8
+
+static void NVIC_Configuration(void){
+    NVIC_InitTypeDef NVIC_InitStructure;
+
+    /* 配置 EXTI9_5 中断 */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;//使能 EXTI9_5 中断通道
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0;//抢占优先级 0
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0;//响应优先级 0
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能中断通道
+    NVIC_Init(&NVIC_InitStructure);//根据 NVIC_InitStructure 结构体初始化 NVIC
+    
+}
+```
+
+
+
+2.调用 RCC_APB2PeriphClockCmd() 时还输入了参数 RCC_APB2Periph_AFIO，表示开启 AFIO 的时钟。
+AFIO (alternate-function I/O)，指 GPIO 端口的复用功能，GPIO 除了用作普通的输入输出(主功能)，还可以作为片上外设的复用输入输出，如串口，ADC，这些就是复用功能。大多数 GPIO 都有一个默认复用功能，有的 GPIO 还有重映射功能， 重映射功能是指把原来属于 A 引脚的默认复用功能，转移到了B 引脚进行使用，前提是 B 引脚具有这个重映射功能当把 GPIO 用作 EXTI 外部中断 或使用重映射功能的时候，必须开启 AFIO时钟，而在使用默认复用功能的时候，就不必开启 AFIO 时钟了。
+
+3.*NVIC_PriorityGroupConfig()*库函数，把 NVIC 中 断优先级分组设置为第 1 组。接下来将NVIC_IRQChannel=EXTI9_5_IRQn这个固定的参数，写入的参数在这stm32f10x.h 文件的 IRQn 类型定义中查找到。然后在配置抢占优先级和响应优先级即可完成，最后在NVIC_Init中调用该函数。
+
+4.在这个 EXTI 设置中我们把 PF8 连接到内部的 EXTI5，GPIO 配置为上拉输入，工作在下降沿中断。在外围电路上我们将 PF8 接到了 key1 上。当按键没有按下时，PF8 始终为高，当按键按下时 PF8 变为低，从而 PF8 上产生一个下降沿跳变，EXTI5 会捕捉到这一跳变，并产生相应的中断，中断服务程序在stm32f10x_it.c 中实现。
+
+5.中断服务函数的名 字必须要跟启动文件 *startup_stm32f10x_hd.s* 中的中断向量表定义一致。
+
+在这个 EXTI 设置中我们把 PF8 连接到内部的 EXTI5，GPIO 配置为上拉输入，工作在下降沿中断。在外围电路上我们将 PF8 接到了 key1 上。当按键没有按下时，PF8 始终为高，当按键按下时 PF8 变为低，从而 PF8 上产生一个下降沿跳变，EXTI5 会捕捉到这一跳变，并产生相应的中断，中断服务程序在stm32f10x_it.c 中实现。
+
+6.看了中级篇的usart串口打印，在之前已实现，主要了解一下串口的协议。
