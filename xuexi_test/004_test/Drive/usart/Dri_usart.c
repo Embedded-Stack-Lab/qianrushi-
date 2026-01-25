@@ -10,6 +10,7 @@ void Dri_usart_config(void)
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure); // 未被正确初始化。代码中设置了GPIOA的时钟，但没有初始化GPIOA的模式和速度。
 
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
@@ -21,6 +22,7 @@ void Dri_usart_config(void)
     USART_Initstructure.USART_Parity = USART_Parity_No;
     USART_Initstructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
     USART_Initstructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+    USART_Cmd(USART1, ENABLE); // 未使能串口1，导致无法进行串口数据的传输
     USART_Init(USART1, &USART_Initstructure);
 }
 
@@ -88,7 +90,7 @@ void USART1_printf(USART_TypeDef *USARTx, uint8_t *Data, ...)
                 break;
 
             case 'n':
-                USART_SendData(USARTx, 0xa0);
+                USART_SendData(USARTx, 0x0a); // 换行0x0A是ascll的换行符
                 Data++;
                 break;
 
@@ -117,6 +119,7 @@ void USART1_printf(USART_TypeDef *USARTx, uint8_t *Data, ...)
                 itoa(d, buf, 10);
                 for (s = buf; *s; s++)
                 {
+                    USART_SendData(USART1, *s); // 把每个字符真正发出去
                     while (USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET)
                         ;
                 }
