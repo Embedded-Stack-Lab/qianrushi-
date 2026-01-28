@@ -13,4 +13,6 @@ void TimingDelay_Decrement(void);
 
 void Delay_us(__IO uint32_t nTime);
 
+void Delay_ms(__IO uint32_t nTime);
+
 #endif /* __DRI_SYSTICK_H__ */

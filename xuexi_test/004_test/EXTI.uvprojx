@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\User;.\Drive\usart</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\User;.\Drive\usart;.\Drive\Systick;.\Drive\ADC1</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -573,6 +573,36 @@
               <FileName>Dri_usart.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\usart\Dri_usart.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Dri/ADC1</GroupName>
+          <Files>
+            <File>
+              <FileName>Dri_ADC1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\ADC1\Dri_ADC1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dri_ADC1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\ADC1\Dri_ADC1.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Dri/Systick</GroupName>
+          <Files>
+            <File>
+              <FileName>Dri_Systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Systick\Dri_Systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dri_Systick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Systick\Dri_Systick.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -865,3 +865,32 @@ $$
 首先*ADC1_GPIO_Config()*就是线打开DMA的开关，开启ADC1和GPIOC的时钟，用到的引脚是PC1，配置为模拟输入模式。
 
 在数据手册中找到adc通道与GPIO的关系，注意不是参考手册。
+
+
+
+2026年1月28日
+
+1.将adc的代码写完，中间遇到一个问题就是，在打印为所示:
+
+```
+[01:18:18.003]收←◆
+ The current AD value = 0x0000 
+
+ The current AD value = 0.000000 V 
+
+[01:18:30.461]收←◆
+ This is a USART1_printf demo 
+
+[01:18:32.464]收←◆
+ (Jan 29 2026 - 01:18:19) 
+ 
+ The current AD value = 0x0000 
+
+ The current AD value = 0.000000 V 
+
+```
+
+借助ai以为是adc与dma的配置有误，其实不是在gpio配置时gpioc挂载总线错误修改后就可解决。
+
+2.还有一个是外部引用必须赋值 extern__IO u16 ADC_ConvertedValue = 0;如果初始化就会报错。
+

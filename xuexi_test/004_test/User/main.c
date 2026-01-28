@@ -1,5 +1,9 @@
 #include "stm32f10x.h" // Device header
 #include "Dri_usart.h"
+#include "Dri_ADC1.h"
+
+extern __IO uint16_t ADC_ConvertedValue;
+float ADC_ConvertedValueLocal;
 
 int main()
 {
@@ -12,12 +16,19 @@ int main()
 	// GPIO_Init(GPIOA, &GPIO_InitStructure);				  // ≥ı ºªØ
 	// GPIO_ResetBits(GPIOA, GPIO_Pin_0);					  // PA0÷√µÕ
 	Dri_usart_config();
+	Dri_systick_init();
+	Dri_adc_init();
 
 	USART1_printf(USART1, "\r\n This is a USART1_printf demo \r\n");
+	Delay_ms(20);
 	USART1_printf(USART1, "\r\n (" __DATE__ " - " __TIME__ ") \r\n ");
 
 	while (1)
 	{
+		ADC_ConvertedValueLocal = (float)ADC_ConvertedValue / 4096 * 3.3;
+		printf("\r\n The current AD value = 0x%04X \r\n", ADC_ConvertedValue);
+		printf("\r\n The current AD value = %f V \r\n", ADC_ConvertedValueLocal);
+
+		Delay_ms(500);
 	}
 }
-  
