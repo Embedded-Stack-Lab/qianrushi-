@@ -7,6 +7,9 @@
 #include "stm32f10x_rcc.h"
 
 void Dri_adc_init(void);
-extern __IO u16 ADC_ConvertedValue;
+// extern __IO u16 ADC_ConvertedValue;
+extern __IO u16 ADC_ConvertedValue2;
+
+void Dri_adc_Temp(void);
 
 #endif /* __DRI_ADC1_H__ */
