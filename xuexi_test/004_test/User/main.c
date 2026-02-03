@@ -1,6 +1,7 @@
 #include "stm32f10x.h" // Device header
 #include "Dri_usart.h"
 #include "Dri_ADC1.h"
+#include "stm32f10x_rtc.h"
 
 // extern __IO u16 ADC_ConvertedValue;
 extern __IO u16 ADC_ConvertedValue2;
@@ -51,6 +52,7 @@ float ADC_ConvertedValueLocal;
 float v25 = 1790.0;	   // 0x6FE 对应的十进制大约是 1790 (1.43V / 3.3V * 4096)
 float Avg_Slope = 5.3; // 4.3mV / 3.3V * 4096 ≈ 5.3
 
+/*adc转换值的计算
 int main()
 {
 	SystemInit();
@@ -81,5 +83,26 @@ int main()
 		USART1_printf(USART1, "Temp: %d C\r\n", (int)temp_f);
 
 		Delay_ms(1000);
+	}
+}*/
+
+int main()
+{
+
+	SystemInit();
+
+	Dri_usart_config();
+
+	//缺少中断优先级的配置
+	
+	printf("\r\n This is a usart1 printf demo \r\n");
+
+	if (BKP_ReadBackupRegister(BKP_DR1)!=0xa5a5)
+	{
+		
+	}
+	
+	while (1)
+	{
 	}
 }
