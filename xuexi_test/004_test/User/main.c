@@ -1,7 +1,7 @@
 #include "stm32f10x.h" // Device header
 #include "Dri_usart.h"
 #include "Dri_ADC1.h"
-#include "stm32f10x_rtc.h"
+#include "Dri_RTC.h"
 
 // extern __IO u16 ADC_ConvertedValue;
 extern __IO u16 ADC_ConvertedValue2;
@@ -93,15 +93,54 @@ int main()
 
 	Dri_usart_config();
 
-	//缺少中断优先级的配置
-	
-	printf("\r\n This is a usart1 printf demo \r\n");
+	// 缺少中断优先级的配置
 
-	if (BKP_ReadBackupRegister(BKP_DR1)!=0xa5a5)
+	NVIC_Configuration();
+
+	USART1_printf(USART1, "\r\n This is a usart1 printf demo \r\n");
+
+	if (BKP_ReadBackupRegister(BKP_DR1) != 0xa5a5) // 判断是否第一次使用RTC
 	{
-		
+		// RTC没有被初始化过，需要进行配置
+		USART1_printf(USART1, "\r\n First time use RTC, RTC Configuring...\r\n");
+
+		USART1_printf(USART1, "\r\n RTC not yet configured....\r\n");
+
+		Dri_rtc_configuration(); // RTC配置函数
+
+		USART1_printf(USART1, "\r\n RTC configured...\r\n");
+
+		BKP_WriteBackupRegister(BKP_DR1, 0xa5a5); // 写入标志，表示已经初始化过RTC
 	}
-	
+	else
+	{
+		if (RCC_GetFlagStatus(RCC_FLAG_PORRST) != RESET)
+		{
+			USART1_printf(USART1, "\r\n Power On Reset occurred....\r\n");
+		}
+		else if (RCC_GetFlagStatus(RCC_FLAG_PINRST) != RESET)
+		{
+			USART1_printf(USART1, "\r\n External Reset occurred....\r\n");
+		}
+		USART1_printf(USART1, "\r\n RTC already configured....\r\n");
+
+		RTC_WaitForSynchro(); // 等待寄存器同步
+
+		RTC_ITConfig(RTC_IT_SEC, ENABLE); // 使能秒中断
+
+		RTC_WaitForLastTask();
+	}
+
+#ifdef RTCClockOutput_Enable
+
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR | RCC_APB1Periph_BKP, ENABLE); // 使能备份域时钟
+
+	BKP_TamperPinLevelConfig(BKP_RTCOutputSource_CalibClock); // 使能RTC时钟输出
+
+#endif
+	RCC_ClearFlag(); // 清除复位标志
+
+	Dri_rtc_TimeShow();
 	while (1)
 	{
 	}

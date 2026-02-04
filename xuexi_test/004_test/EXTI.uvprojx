@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\User;.\Drive\usart;.\Drive\Systick;.\Drive\ADC1</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\User;.\Drive\usart;.\Drive\Systick;.\Drive\ADC1;.\Drive\RTC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -603,6 +603,21 @@
               <FileName>Dri_Systick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\Systick\Dri_Systick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Dri/RTC</GroupName>
+          <Files>
+            <File>
+              <FileName>Dri_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\RTC\Dri_RTC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dri_RTC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\RTC\Dri_RTC.h</FilePath>
             </File>
           </Files>
         </Group>

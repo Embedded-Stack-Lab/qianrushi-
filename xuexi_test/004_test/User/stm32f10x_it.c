@@ -36,6 +36,8 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
+extern int TimeDisplay;
+
 /******************************************************************************/
 /*            Cortex-M3 Processor Exceptions Handlers                         */
 /******************************************************************************/
@@ -136,6 +138,24 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   TimingDelay_Decrement();
+}
+
+void RTC_IRQHandler(void)
+{
+  if (RTC_GetITStatus(RTC_IT_SEC) != RESET)
+  {
+    RTC_ClearITPendingBit(RTC_IT_SEC); // 清除中断标志
+
+    TimeDisplay = 1;
+
+    RTC_WaitForLastTask();
+
+    if (RTC_GetCounter() == 0x000115180)
+    {
+      RTC_SetCounter(0); // 每隔12小时，重新从0开始计时
+      RTC_WaitForLastTask();
+    }
+  }
 }
 
 /******************************************************************************/
