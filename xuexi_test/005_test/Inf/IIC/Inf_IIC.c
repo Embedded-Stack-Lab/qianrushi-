@@ -1,12 +1,6 @@
 #include "Inf_IIC.h"
 
-#define SDA_H GPIO_SetBits(GPIOB, GPIO_Pin_7)             // SDA置高
-#define SDA_L GPIO_ResetBits(GPIOB, GPIO_Pin_7)           // SDA置低
-#define SCL_H GPIO_SetBits(GPIOB, GPIO_Pin_6)             // SCL置高
-#define SCL_L GPIO_ResetBits(GPIOB, GPIO_Pin_6)           // SCL置低
-#define SDA_READ GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_7) // 读SDA线状态
-#define SCL_READ GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_6) // 读SCL线状态
-#define DELAY_IIC Dri_Systick_Delay_us(10);               // 延时10us来传输数据
+
 
 void Inf_IIC_Init(void)
 {
@@ -69,7 +63,7 @@ void Inf_IIC_NACK(void)
     DELAY_IIC;
 }
 
-void Dri_I2C_SendByte(uint8_t byte)
+void Inf_I2C_SendByte(uint8_t byte)
 {
 
     for (uint8_t i = 0; i < 8; i++)
@@ -97,7 +91,8 @@ void Dri_I2C_SendByte(uint8_t byte)
     }
 }
 
-uint8_t Dri_I2C_ReceiveCyte(void)
+
+uint8_t Inf_I2C_ReceiveByte(void)
 {
     uint8_t byte = 0;
 
@@ -126,3 +121,28 @@ uint8_t Dri_I2C_ReceiveCyte(void)
 
     return byte;
 }
+
+uint8_t Inf_I2C_WaitAck(void)
+{
+    SDA_H;
+    DELAY_IIC;
+
+    SCL_L;
+    DELAY_IIC;
+
+    SCL_H;
+    DELAY_IIC;
+
+    if(SDA_READ)
+    {
+        SCL_L;
+        DELAY_IIC;
+        return 1; // 没有收到应答
+    }
+
+    SCL_L;
+    DELAY_IIC;
+
+    return 0;
+}
+
