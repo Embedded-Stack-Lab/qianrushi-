@@ -1,0 +1,1 @@
+--cpu Cortex-M3 --library_type=microlib --scatter "d:/software/xuexi/xuexi_test/005_test/build/Target 1/rtc.sct" --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers --list ".\build\Target 1\rtc.map"

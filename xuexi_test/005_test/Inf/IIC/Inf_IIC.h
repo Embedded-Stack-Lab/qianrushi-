@@ -31,3 +31,4 @@ void Inf_I2C_SendByte(uint8_t byte);
 uint8_t Inf_I2C_WaitAck(void);
 
 #endif /* __INF_IIC_H__ */
+

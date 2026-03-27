@@ -2,6 +2,7 @@
 #define __DRI_EEPROM_H__
 
 #include "Inf_IIC.h"
+#include "Dri_Systick.h"
 
 #define DEVICE_WRITE 0xA0
 #define DEVICE_READ 0xA1

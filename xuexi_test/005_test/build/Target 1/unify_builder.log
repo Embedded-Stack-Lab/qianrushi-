@@ -1,0 +1,202 @@
+[2026-03-02 23:23:30]	compilation failed at : "d:\software\xuexi\xuexi_test\005_test\Library\stm32f10x_fsmc.c", exit code: 1
+command: 
+  "d:\arm_KeilMDK\ARM\arm5_compiler\bin\armcc.exe" -c --apcs=interwork -IStart -IUser -ILibrary -IInf/IIC -IDriver -IDriver/Systick -IDriver/eeprom -I"RTE/_Target 1" -DUSE_STDPERIPH_DRIVER --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --diag_suppress=1 --diag_suppress=1295 -g -o ".\build\Target 1\.obj\Library\stm32f10x_fsmc.o" --no_depend_system_headers --depend ".\build\Target 1\.obj\Library\stm32f10x_fsmc.d" .\Library\stm32f10x_fsmc.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\misc.c: 0 warnings, 1 error
+".\Driver\Dri_rtc.h", line 1: Warning:  #14-D: extra text after expected end of preprocessing directive
+  #ifndef __DRI_RTC _H__
+                    ^
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Driver\Dri_rtc.c: 1 warning, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Driver\eeprom\Dri_eeprom.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Inf\IIC\Inf_IIC.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Driver\Systick\Dri_Systick.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_adc.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_crc.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_can.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_cec.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_dac.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_dbgmcu.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_dma.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_flash.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_exti.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_bkp.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_fsmc.c: 0 warnings, 1 error
+
+[2026-03-02 23:30:50]	compilation failed at : "d:\software\xuexi\xuexi_test\005_test\Library\stm32f10x_dbgmcu.c", exit code: 1
+command: 
+  "d:\arm_KeilMDK\ARM\arm5_compiler\bin\armcc.exe" -c --apcs=interwork -IStart -IUser -ILibrary -IInf/IIC -IDriver -IDriver/Systick -IDriver/eeprom -I"RTE/_Target 1" -DUSE_STDPERIPH_DRIVER --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --diag_suppress=1 --diag_suppress=1295 -g -o ".\build\Target 1\.obj\Library\stm32f10x_dbgmcu.o" --no_depend_system_headers --depend ".\build\Target 1\.obj\Library\stm32f10x_dbgmcu.d" .\Library\stm32f10x_dbgmcu.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Driver\Dri_rtc.h", line 1: Warning:  #14-D: extra text after expected end of preprocessing directive
+  #ifndef __DRI_RTC _H__
+                    ^
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Driver\Dri_rtc.c: 1 warning, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\misc.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_bkp.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Driver\Systick\Dri_Systick.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_crc.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Inf\IIC\Inf_IIC.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_cec.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Driver\eeprom\Dri_eeprom.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_adc.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_dma.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_can.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_flash.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_fsmc.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_dac.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_exti.c: 0 warnings, 1 error
+"Start\stm32f10x.h", line 96: Error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+   #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+    ^
+.\Library\stm32f10x_dbgmcu.c: 0 warnings, 1 error
+
+[2026-03-02 23:36:21]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Delay_ms (referred from Dri_eeprom.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-03-02 23:54:08]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\software\xuexi\xuexi_test\005_test\Driver\Systick\Dri_Systick.c': dependence 'd:\software\xuexi\xuexi_test\005_test\Driver\Systick\Dri_Systick.h' has been changed.
+'d:\software\xuexi\xuexi_test\005_test\Driver\eeprom\Dri_eeprom.c': dependence 'd:\software\xuexi\xuexi_test\005_test\Driver\Systick\Dri_Systick.h' has been changed.
+'d:\software\xuexi\xuexi_test\005_test\Inf\IIC\Inf_IIC.c': dependence 'd:\software\xuexi\xuexi_test\005_test\Driver\Systick\Dri_Systick.h' has been changed.
+'d:\software\xuexi\xuexi_test\005_test\User\main.c': dependence 'd:\software\xuexi\xuexi_test\005_test\Driver\Systick\Dri_Systick.h' has been changed.
+
+[2026-03-02 23:54:09]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Delay_ms (referred from Dri_eeprom.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-03-02 23:56:18]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Delay_ms (referred from Dri_eeprom.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-03-03 00:03:29]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Delay_ms (referred from Dri_eeprom.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-03-03 00:05:09]	[done]
+	build successfully !
+
+[2026-03-15 17:12:04]	compilation failed at : "d:\software\xuexi\xuexi_test\005_test\User\main.c", exit code: 1
+command: 
+  "d:\arm_KeilMDK\ARM\arm5_compiler\bin\armcc.exe" -c --apcs=interwork -IStart -IUser -ILibrary -IInf/IIC -IDriver -IDriver/eeprom -IDriver/Systick -I"RTE/_Target 1" -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --diag_suppress=1 --diag_suppress=1295 -g -o ".\build\Target 1\.obj\User\main.o" --no_depend_system_headers --depend ".\build\Target 1\.obj\User\main.d" .\User\main.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+".\User\main.c", line 3: Error:  #5: cannot open source input file "Dri_usart.h": No such file or directory
+  #include "Dri_usart.h"
+                        ^
+.\User\main.c: 0 warnings, 1 error
+

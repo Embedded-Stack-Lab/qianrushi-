@@ -5,7 +5,7 @@
 void Inf_IIC_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruture;
-    RCC_APB2PeriphClockCmd(GPIOB, ENABLE);                // 开时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2ENR_IOPBEN, ENABLE);                // 开时钟
     GPIO_InitStruture.GPIO_Mode = GPIO_Mode_Out_OD;       // 开漏输出
     GPIO_InitStruture.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; // 选择引脚
     GPIO_InitStruture.GPIO_Speed = GPIO_Speed_50MHz;      // 速度50MHz
@@ -101,7 +101,7 @@ uint8_t Inf_I2C_ReceiveByte(void)
 
     SCL_H;
 
-    for (size_t i = 0; i < 8; i++)
+    for (int i = 0; i < 8; i++)
     {
         SCL_L;
         DELAY_IIC;

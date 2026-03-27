@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "*.c": "c",
+            "dri_usart.h": "c"
+        }
+    },
+    "extensions": {}
+}

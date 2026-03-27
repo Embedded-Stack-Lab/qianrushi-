@@ -1,0 +1,1 @@
+"d:\arm_KeilMDK\ARM\arm5_compiler\bin\armasm.exe" --apcs=interwork -IStart -IUser -ILibrary -IInf/IIC -IDriver -IDriver/eeprom -IDriver/Systick -I"RTE/_Target 1" --cpu Cortex-M3 --li --pd "__MICROLIB SETA 1" -g -o ".\build\Target 1\.obj\Start\startup_stm32f10x_hd.o" --depend ".\build\Target 1\.obj\Start\startup_stm32f10x_hd.d" .\Start\startup_stm32f10x_hd.s
