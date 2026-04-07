@@ -1095,3 +1095,11 @@ EEPROM 是一种非易失性半导体存储器，全称是 Electrically Erasable
 
 2026年4月6日
 今天用vscode发现没有装gcc编译器，之前是用keil对于代码进行一个编译。还未装vscdoe的keil插件。今天将串口打印，key的按键转化，与led灯进行一个整合，接下来准备将led灯进行一个呼吸灯也添加进去。
+
+2026年4月7日
+今天在编程的时候发现，未激活标准库的定义；防止 CPU 写入速度太快，下一个字节把上一个字节还没来得及发出去的数据覆盖掉
+ while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+ 1.TDR (Transmit Data Register)：发送数据寄存器。它是面向 CPU 的接口，位于地址映射内。当执行 USART_SendData() 时，数据被写入此处，然后通过 TxD 线发送出去。
+ 2.TSR (Transmit Shift Register)：发送移位寄存器。它位于地址映射外，用于暂存要发送的数据。当执行 USART_SendData() 时，数据被写入 TSR，然后通过 TxD 线发送出去。
+ 3.TC (Transmit Complete)：发送完成标志。当 TSR 中的数据被发送完毕后，该标志被置位。
+ 4.CPU 检测到 TXE (Transmit Data Register Empty) 位为 1，表明 TDR 已空。随后将字节写入 TDR，此时 TXE 硬件自动清零。
