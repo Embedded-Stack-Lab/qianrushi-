@@ -1103,3 +1103,6 @@ EEPROM 是一种非易失性半导体存储器，全称是 Electrically Erasable
  2.TSR (Transmit Shift Register)：发送移位寄存器。它位于地址映射外，用于暂存要发送的数据。当执行 USART_SendData() 时，数据被写入 TSR，然后通过 TxD 线发送出去。
  3.TC (Transmit Complete)：发送完成标志。当 TSR 中的数据被发送完毕后，该标志被置位。
  4.CPU 检测到 TXE (Transmit Data Register Empty) 位为 1，表明 TDR 已空。随后将字节写入 TDR，此时 TXE 硬件自动清零。
+
+2026年4月8日
+今天就能晚上，学习了定时器，定时器分为基本定时器，适用于简单的定时：通用定时器增加了PWM的输出、输入和输出捕获和编码器的接口；高级定时器有互补输出死区控制。初始化操作：“开时钟→配时基→使能中断→配NVIC→启动定时器”的固定流程，核心是通过 TIM_TimeBaseInit设置 预分频器（PSC）​ 和 自动重装值（ARR）​ 来确定定时周期，并配合 TIM_ITConfig与 NVIC 配置实现精准的中断触发。
