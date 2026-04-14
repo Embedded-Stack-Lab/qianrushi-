@@ -25,6 +25,8 @@ void Dri_Time_Init(void){
 
 void Dri_Time_SetDuty(uint8_t duty);
 
+extern uint8_t tim2_1s_flag = 1;
+
 void TIM2_IRQHandler(void)
 {
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
@@ -32,6 +34,8 @@ void TIM2_IRQHandler(void)
         
 
         TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+
+        //tim2_1s_flag=1;
     }
 }
 
