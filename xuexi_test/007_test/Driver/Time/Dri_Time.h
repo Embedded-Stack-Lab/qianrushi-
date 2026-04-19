@@ -7,7 +7,10 @@
 
 void Dri_Time_Init(void);
 
-void Dri_Time_SetDuty(uint8_t duty);
+void Dri_TIM_SetDuty(uint8_t duty);
 
+void Dri_Time_PWMInit(void);
+
+uint8_t Dri_TIM_GetDuty(void);
 
 #endif 
