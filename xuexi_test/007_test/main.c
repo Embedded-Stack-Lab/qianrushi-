@@ -3,6 +3,7 @@
 #include "Inf_Led.h"
 #include "Com_Debug.h"
 #include "Inf_Key.h"
+#include "Dri_Time.h"
 
 extern uint8_t tim2_1s_flag;
 
@@ -24,9 +25,18 @@ int main()
     Led_off(1);
     Led_off(2);
     Led_off(3);
-
-    Dri_TIM_SetDuty(50);
-    debuge_printfln("duty=%d",(int)Dri_TIM_GetDuty());
+int8_t i = 0;
+	
+    for (  i = 0; i < 100; i++)
+    {
+        
+        Dri_TIM_SetDuty(i);
+        Dri_Systick_Delay_ms(100);
+        i++;
+        debuge_printfln("duty=%d",(int)Dri_TIM_GetDuty());
+    }
+    
+    // debuge_printfln("duty=%d",(int)Dri_TIM_GetDuty());
     // debuge_printfln("op---------------------%d",tim2_1s_flag);
     while (1)
     {

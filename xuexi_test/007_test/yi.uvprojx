@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Common\Debug;.\Driver\Systick;.\Driver\Usart;.\Inface\Key;.\Inface\Led;.\Library;.\Startup;..\007_test</IncludePath>
+              <IncludePath>.\Common\Debug;.\Driver\Systick;.\Driver\Usart;.\Inface\Key;.\Inface\Led;.\Library;.\Startup;..\007_test;.\Driver\Time</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
