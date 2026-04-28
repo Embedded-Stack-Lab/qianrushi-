@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Common\Debug;.\Driver\Systick;.\Driver\TIM;.\Driver\Usart;.\StartUp;.\User;.\Library</IncludePath>
+              <IncludePath>.\Common\Debug;.\Driver\Systick;.\Driver\TIM;.\Driver\Usart;.\StartUp;.\User;.\Library;.\Driver\KEY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -736,6 +736,21 @@
               <FileName>stm32f10x_wwdg.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Library\stm32f10x_wwdg.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Dri/Key</GroupName>
+          <Files>
+            <File>
+              <FileName>Dri_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\KEY\Dri_key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dri_key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Driver\KEY\Dri_key.h</FilePath>
             </File>
           </Files>
         </Group>
