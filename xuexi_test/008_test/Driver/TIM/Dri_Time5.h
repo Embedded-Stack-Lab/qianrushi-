@@ -13,7 +13,7 @@ void Dri_Tim5_SetDuty(uint16_t duty);
 
 void Dri_Tim5_Stop(void);
 
-
+uint16_t Dri_Tim5_GetDuty(void);
 
 
 

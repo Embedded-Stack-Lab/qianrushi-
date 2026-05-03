@@ -61,5 +61,15 @@ void Dri_Tim5_Stop(void)
 void Dri_Tim5_SetDuty(uint16_t duty)
 {
     TIM_SetCompare2(TIM5, duty);
+
+}
+
+/**
+ * @brief 获取占空比
+ * @return 占空比数值 (读取 CCR2)
+ */
+uint16_t Dri_Tim5_GetDuty(void)
+{
+    return TIM_GetCapture2(TIM5);
 }
 
