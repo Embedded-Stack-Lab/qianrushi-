@@ -1210,3 +1210,8 @@ else if (!is_pressed) {
 
 2026年5月12日
 今天学习了DMA，（Direct Memory Access） 是一种硬件机制，允许外设直接与内存进行数据传输，无需CPU介入。STM32标准库（StdPeriph）DMA初始化需先开启RCC时钟，定义DMA_InitTypeDef结构体。核心配置包括：设置外设/内存基地址、传输方向（DIR）、数据宽度（Byte/Halfword/Word）、地址自增模式及缓冲区大小。配置完成后调用DMA_Init()写入寄存器，并用DMA_Cmd()使能通道。若配合外设（如USART），还需在对应外设寄存器中开启DMA请求。。
+
+
+2026年5月13日
+今天将准备将可调节电阻的值打印出来，还未打印成功。
+
