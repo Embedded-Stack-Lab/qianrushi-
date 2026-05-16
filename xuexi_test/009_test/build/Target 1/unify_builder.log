@@ -1,0 +1,159 @@
+[2026-05-05 23:19:19]	[info] incremental build: 33 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Driver\BaseTime\Dri_Bsaetime.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Driver\Systick\Dri_Systick.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Driver\Usart\Dri_usart.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Interface\Led\Int_Led.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Interface\key\Int_key.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\misc.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_adc.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_bkp.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_can.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_cec.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_crc.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_dac.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_dbgmcu.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_dma.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_exti.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_flash.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_fsmc.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_gpio.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_i2c.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_iwdg.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_pwr.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_rcc.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_rtc.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_sdio.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_spi.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_tim.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_usart.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\Library\stm32f10x_wwdg.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\StartUp\core_cm3.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\StartUp\startup_stm32f10x_hd.s': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\StartUp\system_stm32f10x.c': object (.o) file not exist
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': object (.o) file not exist
+
+[2026-05-05 23:19:21]	[done]
+	build successfully !
+
+[2026-05-05 23:26:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-05 23:26:18]	[done]
+	build successfully !
+
+[2026-05-06 23:54:31]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\Driver\Usart\Dri_usart.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-06 23:54:31]	[done]
+	build successfully !
+
+[2026-05-07 23:19:16]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\Driver\Usart\Dri_usart.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-07 23:19:17]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol USART_IsSendComplete (referred from Common_Deebug.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-05-07 23:19:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+
+[2026-05-07 23:19:48]	[done]
+	build successfully !
+
+[2026-05-07 23:22:19]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-07 23:22:20]	[done]
+	build successfully !
+
+[2026-05-07 23:29:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Driver\Usart\Dri_usart.c': source file has been changed.
+
+[2026-05-07 23:29:44]	[done]
+	build successfully !
+
+[2026-05-08 00:09:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-08 00:09:23]	[done]
+	build successfully !
+
+[2026-05-11 23:53:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+
+[2026-05-11 23:53:47]	[done]
+	build successfully !
+
+[2026-05-11 23:58:00]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\Driver\Usart\Dri_usart.c': source file has been changed.
+
+[2026-05-11 23:58:01]	[done]
+	build successfully !
+
+[2026-05-14 23:54:41]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Common\Debug\Common_Deebug.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-14 23:54:42]	[done]
+	build successfully !
+
+[2026-05-15 00:19:11]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-15 00:19:12]	[done]
+	build successfully !
+
+[2026-05-15 00:19:14]	[done]
+	build successfully !
+
+[2026-05-15 00:20:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-15 00:20:58]	[done]
+	build successfully !
+
+[2026-05-15 00:21:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': source file has been changed.
+
+[2026-05-15 00:21:59]	[done]
+	build successfully !
+
