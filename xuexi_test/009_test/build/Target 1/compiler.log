@@ -4,4 +4,7 @@
 
 >>> ld
 
-Program Size: Code=3060 RO-data=336 RW-data=24 ZI-data=1024  
+Error: L6218E: Undefined symbol Dri_ADC1_DMA_Start (referred from main.o).
+Error: L6218E: Undefined symbol Dri_ADC_DMA_Start (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.

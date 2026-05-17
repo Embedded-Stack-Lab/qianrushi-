@@ -2,10 +2,15 @@
 #include "string.h"
 #include "Dri_usart.h"
 #include "Common_Deebug.h"
+#include "Dri_ADC.h"
+#include "Dri_Systick.h"
 
 uint16_t touch_data_start[10] = {0};
 
 uint16_t touch_data_read[5] = {0x06, 0x08};
+
+
+uint16_t data[2]={0};
 
 void EXTI_PA0_Init(void)
 {
@@ -48,9 +53,12 @@ int main()
     // 初始化USART
     // Dri_USART_Init();
     Common_Debug_Init();
-    EXTI_PA0_Init();
+    // EXTI_PA0_Init();
+    Dri_ADC1_DMA_Start();
 
-    debuge_printf("%d", GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0));
+    Dri_ADC_DMA_Start((uint32_t)data,(uint32_t)&ADC1->DR,2);
+
+    // debuge_printf("%d", GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0));
 
     debuge_printf("opkj");
     while (1)
@@ -77,6 +85,8 @@ int main()
         //        debuge_printf("%d", GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_9));
                
         //     }
+         debuge_printf("v10=%.2f,v12=%.2f", 3.3 * data[0] / 4095, 3.3 * data[1] / 4095);
+        Dri_Systick_Delay_ms(1000);
             
            
         // }

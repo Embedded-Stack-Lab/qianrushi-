@@ -29,3 +29,5 @@
 .\build\Target 1\.obj\User\main.o: Library\misc.h
 .\build\Target 1\.obj\User\main.o: Driver/Usart/Dri_usart.h
 .\build\Target 1\.obj\User\main.o: Common/Debug/Common_Deebug.h
+.\build\Target 1\.obj\User\main.o: Driver/ADC/Dri_ADC.h
+.\build\Target 1\.obj\User\main.o: Driver/Systick/Dri_Systick.h

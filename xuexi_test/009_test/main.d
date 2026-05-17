@@ -33,3 +33,5 @@
 .\main.o: .\Common\Debug\Common_Deebug.h
 .\main.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\main.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdlib.h
+.\main.o: .\Driver\ADC\Dri_ADC.h
+.\main.o: .\Driver\Systick\Dri_Systick.h

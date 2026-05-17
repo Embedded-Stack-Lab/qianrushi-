@@ -3,9 +3,9 @@
 
 #include "stm32f10x.h"
 #include "stm32f10x_adc.h"
-#include "Dri_Common.h"
+//#include "Dri_Common.h"
 
-void Dri_ADC_Init(void);
-uint16_t Dri_ADC_Read(void);
+void Dri_ADC_DMA_Start(uint32_t memArr, uint32_t pAddr, uint8_t sizes);
+void Dri_ADC1_DMA_Start(void);
 
 #endif

@@ -641,6 +641,21 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>Dri/ADC</GroupName>
+          <Files>
+            <File>
+              <FileName>Dri_ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\ADC\Dri_ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dri_ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Driver\ADC\Dri_ADC.h</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>
