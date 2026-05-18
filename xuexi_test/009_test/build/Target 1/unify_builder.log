@@ -74,3 +74,18 @@ Not enough information to list image symbols.
 Finished: 1 information, 0 warning and 2 error messages.
 
 
+[2026-05-18 23:46:24]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lianxidaima\xuexi_test\009_test\Driver\Systick\Dri_Systick.c': source file has been changed.
+'d:\lianxidaima\xuexi_test\009_test\User\main.c': dependence 'd:\lianxidaima\xuexi_test\009_test\Driver\ADC\Dri_ADC.h' has been changed.
+
+[2026-05-18 23:46:25]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Dri_ADC1_DMA_Start (referred from main.o).
+Error: L6218E: Undefined symbol Dri_ADC_DMA_Start (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+
+

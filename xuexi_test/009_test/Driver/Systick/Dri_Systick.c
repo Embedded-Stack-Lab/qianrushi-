@@ -9,47 +9,69 @@ void Dri_Systick_Init(void)
 
     SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk; // 使能SysTick中断
 
-    SysTick->CTRL = ~SysTick_CTRL_ENABLE_Msk; // 关闭定时器
+    us_count = SYSTICK_CLK / 8000000; // 9
+
+    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk; // 关闭定时器
 }
 
 void Dri_Systick_Delay_us(uint32_t us)
 {
 
-    uint32_t temp;
+    // uint32_t temp;
 
-    SysTick->LOAD = us * us_count; // 设置SysTick定时器加载值为us*us_count
+    // SysTick->LOAD = us * us_count; // 设置SysTick定时器加载值为us*us_count
 
-    SysTick->VAL = 0x00; // 将SysTick定时器计数器设为0x00，使定时器从0开始计数
+    // SysTick->VAL = 0x00; // 将SysTick定时器计数器设为0x00，使定时器从0开始计数
 
-    SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk; // 启动定时器
+    // SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk; // 启动定时器
 
-    while ((temp & 0x01)&& !(temp &(1<<16)))//等待SysTick定时器中断标志位为1
-    {
-        temp= SysTick->CTRL;//读取SysTick定时器状态寄存器
-    }//检查完成的标志位
+    // while ((temp & 0x01) && !(temp & (1 << 16))) // 等待SysTick定时器中断标志位为1
+    // {
+    //     temp = SysTick->CTRL; // 读取SysTick定时器状态寄存器
+    // } // 检查完成的标志位
+
+    // SysTick->CTRL &= ~SysTick_CTRL_CLKSOURCE_Msk; // 关闭定时器
+
+    // SysTick->VAL = 0x00; // 将SysTick定时器计数器设为0x00，使定时器从0开始计数
+
+    uint32_t load = us * us_count;
+    if (load > 0xFFFFFF)
+        load = 0xFFFFFF;
+
+    SysTick->LOAD = load;
+    SysTick->VAL = 0;
+
+    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+
+    while (!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk))
+        ;
+
+    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+    SysTick->VAL = 0;
+}
+void Dri_Systick_Delay_ms(uint32_t ms)
+{
 
 
-    SysTick->CTRL &=~SysTick_CTRL_CLKSOURCE_Msk;//关闭定时器
 
-    SysTick->VAL=0x00;//将SysTick定时器计数器设为0x00，使定时器从0开始计数
+        while (ms--)
+        Dri_Systick_Delay_us(1000);
 
-  }
-void Dri_Systick_Delay_ms(uint32_t ms){
-    uint32_t temp;
 
-    SysTick->LOAD = ms * ms_count; // 设置SysTick定时器加载值为ms*ms_count
+    // uint32_t temp;
 
-    SysTick->VAL= 0x00;//将SysTick定时器计数器设为0x00，使定时器从0开始计数
+    // SysTick->LOAD = ms * ms_count; // 设置SysTick定时器加载值为ms*ms_count
 
-    SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk; // 启动定时器
+    // SysTick->VAL = 0x00; // 将SysTick定时器计数器设为0x00，使定时器从0开始计数
 
-    while ((temp & 0x01)&& !(temp &(1<<16)))//等待SysTick定时器中断标志位为1
-    {
-        temp= SysTick->CTRL;//读取SysTick定时器状态寄存器
-    }//检查完成的标志位
+    // SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk; // 启动定时器
 
-    SysTick->CTRL &=~SysTick_CTRL_CLKSOURCE_Msk;//关闭定时器
+    // while ((temp & 0x01) && !(temp & (1 << 16))) // 等待SysTick定时器中断标志位为1
+    // {
+    //     temp = SysTick->CTRL; // 读取SysTick定时器状态寄存器
+    // } // 检查完成的标志位
 
-    SysTick->VAL=0x00;//将SysTick定时器计数器设为0x00，使定时器从0开始计数
+    // SysTick->CTRL &= ~SysTick_CTRL_CLKSOURCE_Msk; // 关闭定时器
 
+    // SysTick->VAL = 0x00; // 将SysTick定时器计数器设为0x00，使定时器从0开始计数
 }

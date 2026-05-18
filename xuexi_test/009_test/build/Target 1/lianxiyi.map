@@ -7,9 +7,11 @@ Section Cross References
     Common_Deebug.o(i.Common_Debug_Init) refers to Dri_usart.o(i.Dri_USART_Init) for Dri_USART_Init
     Common_Deebug.o(i.fputc) refers to Dri_usart.o(i.Dri_USART_SendByte) for Dri_USART_SendByte
     Dri_Bsaetime.o(i.Dri_BaseTime_Init) refers to Dri_usart.o(i.Dri_USART_Init) for Dri_USART_Init
-    Dri_Systick.o(i.Dri_Systick_Delay_ms) refers to Dri_Systick.o(.data) for ms_count
+    Dri_Systick.o(i.Dri_Systick_Delay_ms) refers to Dri_Systick.o(i.Dri_Systick_Delay_us) for Dri_Systick_Delay_us
     Dri_Systick.o(i.Dri_Systick_Delay_us) refers to Dri_Systick.o(.data) for us_count
     Dri_Systick.o(i.Dri_Systick_Init) refers to misc.o(i.SysTick_CLKSourceConfig) for SysTick_CLKSourceConfig
+    Dri_Systick.o(i.Dri_Systick_Init) refers to system_stm32f10x.o(.data) for SystemCoreClock
+    Dri_Systick.o(i.Dri_Systick_Init) refers to Dri_Systick.o(.data) for us_count
     Dri_usart.o(i.Dri_USART_Init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
     Dri_usart.o(i.Dri_USART_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
     Dri_usart.o(i.Dri_USART_Init) refers to stm32f10x_usart.o(i.USART_Init) for USART_Init
@@ -374,8 +376,7 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing Dri_Bsaetime.o(i.Dri_BaseTime_Init), (8 bytes).
-    Removing Dri_Systick.o(i.Dri_Systick_Delay_us), (72 bytes).
-    Removing Dri_Systick.o(i.Dri_Systick_Init), (32 bytes).
+    Removing Dri_Systick.o(i.Dri_Systick_Init), (72 bytes).
     Removing Dri_usart.o(i.Dri_USART_ReceiveByte), (32 bytes).
     Removing Int_Led.o(i.Int_Led_Init), (2 bytes).
     Removing misc.o(i.NVIC_Init), (112 bytes).
@@ -848,7 +849,7 @@ Removing Unused input sections from the image.
     Removing main.o(i.EXTI_PA0_Init), (104 bytes).
     Removing main.o(.bss), (20 bytes).
 
-474 unused section(s) (total 19326 bytes) removed from the image.
+473 unused section(s) (total 19294 bytes) removed from the image.
 
 ==============================================================================
 
@@ -856,9 +857,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000000
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001670, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001698, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001648, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001670, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -890,35 +891,36 @@ Memory Map of the image
     0x08000696   0x00000020   Code   RO         3682    .text               mc_w.l(llushr.o)
     0x080006b6   0x00000024   Code   RO         3684    .text               mc_w.l(llsshr.o)
     0x080006da   0x00000008   Code   RO            1    i.Common_Debug_Init  Common_Deebug.o
-    0x080006e2   0x00000002   PAD
-    0x080006e4   0x00000048   Code   RO          142    i.Dri_Systick_Delay_ms  Dri_Systick.o
-    0x0800072c   0x0000007c   Code   RO          171    i.Dri_USART_Init    Dri_usart.o
-    0x080007a8   0x00000030   Code   RO          173    i.Dri_USART_SendByte  Dri_usart.o
-    0x080007d8   0x00000012   Code   RO         3332    i.EXTI0_IRQHandler  main.o
-    0x080007ea   0x00000002   PAD
-    0x080007ec   0x0000000c   Code   RO         1047    i.EXTI_ClearITPendingBit  stm32f10x_exti.o
-    0x080007f8   0x00000028   Code   RO         1051    i.EXTI_GetITStatus  stm32f10x_exti.o
-    0x08000820   0x00000116   Code   RO         1409    i.GPIO_Init         stm32f10x_gpio.o
-    0x08000936   0x00000002   PAD
-    0x08000938   0x00000020   Code   RO         1839    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08000958   0x000000d4   Code   RO         1847    i.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x08000a2c   0x00000008   Code   RO         3276    i.SetSysClock       system_stm32f10x.o
-    0x08000a34   0x000000e0   Code   RO         3277    i.SetSysClockTo72   system_stm32f10x.o
-    0x08000b14   0x00000060   Code   RO         3279    i.SystemInit        system_stm32f10x.o
-    0x08000b74   0x00000018   Code   RO         3022    i.USART_Cmd         stm32f10x_usart.o
-    0x08000b8c   0x0000001a   Code   RO         3025    i.USART_GetFlagStatus  stm32f10x_usart.o
-    0x08000ba6   0x00000002   PAD
-    0x08000ba8   0x000000d8   Code   RO         3029    i.USART_Init        stm32f10x_usart.o
-    0x08000c80   0x00000008   Code   RO         3039    i.USART_SendData    stm32f10x_usart.o
-    0x08000c88   0x00000020   Code   RO         3614    i.__0printf         mc_w.l(printfa.o)
-    0x08000ca8   0x00000184   Code   RO         3621    i._fp_digits        mc_w.l(printfa.o)
-    0x08000e2c   0x000006b4   Code   RO         3622    i._printf_core      mc_w.l(printfa.o)
-    0x080014e0   0x00000024   Code   RO         3623    i._printf_post_padding  mc_w.l(printfa.o)
-    0x08001504   0x0000002e   Code   RO         3624    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x08001532   0x00000010   Code   RO            2    i.fputc             Common_Deebug.o
-    0x08001542   0x00000002   PAD
-    0x08001544   0x00000104   Code   RO         3334    i.main              main.o
-    0x08001648   0x00000000   Data   RO         3686    Region$$Table       anon$$obj.o
+    0x080006e2   0x00000018   Code   RO          142    i.Dri_Systick_Delay_ms  Dri_Systick.o
+    0x080006fa   0x00000002   PAD
+    0x080006fc   0x00000058   Code   RO          143    i.Dri_Systick_Delay_us  Dri_Systick.o
+    0x08000754   0x0000007c   Code   RO          171    i.Dri_USART_Init    Dri_usart.o
+    0x080007d0   0x00000030   Code   RO          173    i.Dri_USART_SendByte  Dri_usart.o
+    0x08000800   0x00000012   Code   RO         3332    i.EXTI0_IRQHandler  main.o
+    0x08000812   0x00000002   PAD
+    0x08000814   0x0000000c   Code   RO         1047    i.EXTI_ClearITPendingBit  stm32f10x_exti.o
+    0x08000820   0x00000028   Code   RO         1051    i.EXTI_GetITStatus  stm32f10x_exti.o
+    0x08000848   0x00000116   Code   RO         1409    i.GPIO_Init         stm32f10x_gpio.o
+    0x0800095e   0x00000002   PAD
+    0x08000960   0x00000020   Code   RO         1839    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x08000980   0x000000d4   Code   RO         1847    i.RCC_GetClocksFreq  stm32f10x_rcc.o
+    0x08000a54   0x00000008   Code   RO         3276    i.SetSysClock       system_stm32f10x.o
+    0x08000a5c   0x000000e0   Code   RO         3277    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000b3c   0x00000060   Code   RO         3279    i.SystemInit        system_stm32f10x.o
+    0x08000b9c   0x00000018   Code   RO         3022    i.USART_Cmd         stm32f10x_usart.o
+    0x08000bb4   0x0000001a   Code   RO         3025    i.USART_GetFlagStatus  stm32f10x_usart.o
+    0x08000bce   0x00000002   PAD
+    0x08000bd0   0x000000d8   Code   RO         3029    i.USART_Init        stm32f10x_usart.o
+    0x08000ca8   0x00000008   Code   RO         3039    i.USART_SendData    stm32f10x_usart.o
+    0x08000cb0   0x00000020   Code   RO         3614    i.__0printf         mc_w.l(printfa.o)
+    0x08000cd0   0x00000184   Code   RO         3621    i._fp_digits        mc_w.l(printfa.o)
+    0x08000e54   0x000006b4   Code   RO         3622    i._printf_core      mc_w.l(printfa.o)
+    0x08001508   0x00000024   Code   RO         3623    i._printf_post_padding  mc_w.l(printfa.o)
+    0x0800152c   0x0000002e   Code   RO         3624    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x0800155a   0x00000010   Code   RO            2    i.fputc             Common_Deebug.o
+    0x0800156a   0x00000002   PAD
+    0x0800156c   0x00000104   Code   RO         3334    i.main              main.o
+    0x08001670   0x00000000   Data   RO         3686    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000428, Max: 0x00010000, ABSOLUTE)

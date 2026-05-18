@@ -93,7 +93,6 @@ Section Cross References
     main.o(i.EXTI_PA0_Init) refers to stm32f10x_exti.o(i.EXTI_Init) for EXTI_Init
     main.o(i.EXTI_PA0_Init) refers to misc.o(i.NVIC_Init) for NVIC_Init
     main.o(i.main) refers to Common_Deebug.o(i.Common_Debug_Init) for Common_Debug_Init
-    main.o(i.main) refers to stm32f10x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
     main.o(i.main) refers to strrchr.o(.text) for strrchr
     main.o(i.main) refers to printfa.o(i.__0printf) for __2printf
     main.o(i.main) refers to dfltui.o(.text) for __aeabi_ui2d
@@ -565,6 +564,7 @@ Removing Unused input sections from the image.
     Removing stm32f10x_gpio.o(i.GPIO_PinLockConfig), (18 bytes).
     Removing stm32f10x_gpio.o(i.GPIO_PinRemapConfig), (144 bytes).
     Removing stm32f10x_gpio.o(i.GPIO_ReadInputData), (8 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadInputDataBit), (18 bytes).
     Removing stm32f10x_gpio.o(i.GPIO_ReadOutputData), (8 bytes).
     Removing stm32f10x_gpio.o(i.GPIO_ReadOutputDataBit), (18 bytes).
     Removing stm32f10x_gpio.o(i.GPIO_ResetBits), (4 bytes).
@@ -848,7 +848,7 @@ Removing Unused input sections from the image.
     Removing main.o(i.EXTI_PA0_Init), (104 bytes).
     Removing main.o(.bss), (20 bytes).
 
-473 unused section(s) (total 19308 bytes) removed from the image.
+474 unused section(s) (total 19326 bytes) removed from the image.
 
 ==============================================================================
 
@@ -856,9 +856,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000000
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000016c4, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001670, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000169c, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001648, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -899,26 +899,26 @@ Memory Map of the image
     0x080007ec   0x0000000c   Code   RO         1047    i.EXTI_ClearITPendingBit  stm32f10x_exti.o
     0x080007f8   0x00000028   Code   RO         1051    i.EXTI_GetITStatus  stm32f10x_exti.o
     0x08000820   0x00000116   Code   RO         1409    i.GPIO_Init         stm32f10x_gpio.o
-    0x08000936   0x00000012   Code   RO         1413    i.GPIO_ReadInputDataBit  stm32f10x_gpio.o
-    0x08000948   0x00000020   Code   RO         1839    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08000968   0x000000d4   Code   RO         1847    i.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x08000a3c   0x00000008   Code   RO         3276    i.SetSysClock       system_stm32f10x.o
-    0x08000a44   0x000000e0   Code   RO         3277    i.SetSysClockTo72   system_stm32f10x.o
-    0x08000b24   0x00000060   Code   RO         3279    i.SystemInit        system_stm32f10x.o
-    0x08000b84   0x00000018   Code   RO         3022    i.USART_Cmd         stm32f10x_usart.o
-    0x08000b9c   0x0000001a   Code   RO         3025    i.USART_GetFlagStatus  stm32f10x_usart.o
-    0x08000bb6   0x00000002   PAD
-    0x08000bb8   0x000000d8   Code   RO         3029    i.USART_Init        stm32f10x_usart.o
-    0x08000c90   0x00000008   Code   RO         3039    i.USART_SendData    stm32f10x_usart.o
-    0x08000c98   0x00000020   Code   RO         3614    i.__0printf         mc_w.l(printfa.o)
-    0x08000cb8   0x00000184   Code   RO         3621    i._fp_digits        mc_w.l(printfa.o)
-    0x08000e3c   0x000006b4   Code   RO         3622    i._printf_core      mc_w.l(printfa.o)
-    0x080014f0   0x00000024   Code   RO         3623    i._printf_post_padding  mc_w.l(printfa.o)
-    0x08001514   0x0000002e   Code   RO         3624    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x08001542   0x00000010   Code   RO            2    i.fputc             Common_Deebug.o
-    0x08001552   0x00000002   PAD
-    0x08001554   0x00000148   Code   RO         3334    i.main              main.o
-    0x0800169c   0x00000000   Data   RO         3686    Region$$Table       anon$$obj.o
+    0x08000936   0x00000002   PAD
+    0x08000938   0x00000020   Code   RO         1839    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x08000958   0x000000d4   Code   RO         1847    i.RCC_GetClocksFreq  stm32f10x_rcc.o
+    0x08000a2c   0x00000008   Code   RO         3276    i.SetSysClock       system_stm32f10x.o
+    0x08000a34   0x000000e0   Code   RO         3277    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000b14   0x00000060   Code   RO         3279    i.SystemInit        system_stm32f10x.o
+    0x08000b74   0x00000018   Code   RO         3022    i.USART_Cmd         stm32f10x_usart.o
+    0x08000b8c   0x0000001a   Code   RO         3025    i.USART_GetFlagStatus  stm32f10x_usart.o
+    0x08000ba6   0x00000002   PAD
+    0x08000ba8   0x000000d8   Code   RO         3029    i.USART_Init        stm32f10x_usart.o
+    0x08000c80   0x00000008   Code   RO         3039    i.USART_SendData    stm32f10x_usart.o
+    0x08000c88   0x00000020   Code   RO         3614    i.__0printf         mc_w.l(printfa.o)
+    0x08000ca8   0x00000184   Code   RO         3621    i._fp_digits        mc_w.l(printfa.o)
+    0x08000e2c   0x000006b4   Code   RO         3622    i._printf_core      mc_w.l(printfa.o)
+    0x080014e0   0x00000024   Code   RO         3623    i._printf_post_padding  mc_w.l(printfa.o)
+    0x08001504   0x0000002e   Code   RO         3624    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x08001532   0x00000010   Code   RO            2    i.fputc             Common_Deebug.o
+    0x08001542   0x00000002   PAD
+    0x08001544   0x00000104   Code   RO         3334    i.main              main.o
+    0x08001648   0x00000000   Data   RO         3686    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000428, Max: 0x00010000, ABSOLUTE)

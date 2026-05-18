@@ -47,6 +47,7 @@ void EXTI_PA0_Init(void)
 
 int main()
 {
+	
 
     // uint8_t recv_data;
 
@@ -60,6 +61,7 @@ int main()
 
     // debuge_printf("%d", GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0));
 
+	printf("%d\n", SystemCoreClock); 
     debuge_printf("opkj");
     while (1)
     {
@@ -87,7 +89,9 @@ int main()
         //     }
          debuge_printf("v10=%.2f,v12=%.2f", 3.3 * data[0] / 4095, 3.3 * data[1] / 4095);
         Dri_Systick_Delay_ms(1000);
-            
+        //     debuge_printf("Loop...\r\n");
+        //  Dri_Systick_Delay_ms(1000);  // 先注释掉延时，测试是否能循环打印
+       // for(uint32_t i = 0; i < 1000000; i++);  // 使用简单延时
            
         // }
     }
