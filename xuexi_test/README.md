@@ -1223,3 +1223,6 @@ else if (!is_pressed) {
 
 2026年5月18日
 找到原因了，但是还在寻找systick这部分为啥这样写有问题。
+
+2026年5月19日
+原因us_count和 ms_count从未被赋值，默认是 0，导致 LOAD = 0，延时完全失效。但是Dri_Systick_Init(void)未打印出us_count的值，在Dri_Systick_Delay_us(uint32_t us)中打印出us_count的值，发现是0，说明us_count的值是有问题的。还在进一步的分析，为啥us_count的值没有修改成功。
