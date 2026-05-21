@@ -1228,4 +1228,7 @@ else if (!is_pressed) {
 原因us_count和 ms_count从未被赋值，默认是 0，导致 LOAD = 0，延时完全失效。但是Dri_Systick_Init(void)未打印出us_count的值，在Dri_Systick_Delay_us(uint32_t us)中打印出us_count的值，发现是0，说明us_count的值是有问题的。还在进一步的分析，为啥us_count的值没有修改成功。
 
 2026年5月20日
-找到原因的是初始化的原因，之前设置的值也都正确，但是SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;打开使能开关一写只打印一次，孩子啊找原因，但是实现了转动滑动电阻的旋钮，adc在初始化的时候将一次转换，改为多次转换，电压值的值发生改变并100ms打印一次。
+找到原因的是初始化的原因，之前设置的值也都正确，但是SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;打开使能开关一写只打印一次找原因，但是实现了转动滑动电阻的旋钮，adc在初始化的时候将一次转换，改为多次转换，电压值的值发生改变并100ms打印一次。
+
+2026年5月21日
+今天晚上将pwm初始化的代码进行一个编写，准备用pwm来控制led灯的亮度。成功后，然后通过可变电阻来调节led灯的亮度。
