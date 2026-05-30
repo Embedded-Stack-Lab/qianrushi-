@@ -33,3 +33,4 @@
 .\dri_bsaetime.o: .\Driver\Usart\Dri_usart.h
 .\dri_bsaetime.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\dri_bsaetime.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdlib.h
+.\dri_bsaetime.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\string.h

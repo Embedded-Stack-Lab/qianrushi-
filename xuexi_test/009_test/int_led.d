@@ -33,3 +33,4 @@
 .\int_led.o: .\Driver\Usart\Dri_usart.h
 .\int_led.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\int_led.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdlib.h
+.\int_led.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\string.h

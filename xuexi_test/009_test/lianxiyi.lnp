@@ -26,6 +26,7 @@
 ".\stm32f10x_usart.o"
 ".\stm32f10x_wwdg.o"
 ".\main.o"
+".\app.o"
 ".\common_deebug.o"
 ".\int_led.o"
 ".\int_key.o"

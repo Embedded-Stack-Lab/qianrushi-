@@ -3,5 +3,7 @@
 #include "Common_Deebug.h"
 
 void Dri_BaseTime_Init(void);
-void Dri_BaseTime_Update(void);
+// void Dri_BaseTime_Update(void);
+extern volatile uint32_t sysTick;
+
 #endif

@@ -6,6 +6,7 @@
 #include "Dri_usart.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 void Common_Debug_Init(void);

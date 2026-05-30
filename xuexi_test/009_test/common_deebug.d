@@ -32,3 +32,4 @@
 .\common_deebug.o: .\Driver\Usart\Dri_usart.h
 .\common_deebug.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\common_deebug.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdlib.h
+.\common_deebug.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\string.h

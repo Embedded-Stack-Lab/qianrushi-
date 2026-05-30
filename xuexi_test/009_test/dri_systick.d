@@ -29,3 +29,8 @@
 .\dri_systick.o: .\Library\stm32f10x_usart.h
 .\dri_systick.o: .\Library\stm32f10x_wwdg.h
 .\dri_systick.o: .\Library\misc.h
+.\dri_systick.o: .\Common\Debug\Common_Deebug.h
+.\dri_systick.o: .\Driver\Usart\Dri_usart.h
+.\dri_systick.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdio.h
+.\dri_systick.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdlib.h
+.\dri_systick.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\string.h

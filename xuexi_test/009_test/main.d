@@ -34,4 +34,8 @@
 .\main.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\main.o: D:\Keil\ARM\arm5_compiler\Bin\..\include\stdlib.h
 .\main.o: .\Driver\ADC\Dri_ADC.h
+.\main.o: .\Driver\BaseTime\Dri_Basetime.h
 .\main.o: .\Driver\Systick\Dri_Systick.h
+.\main.o: User\app.h
+.\main.o: .\Interface\key\Int_key.h
+.\main.o: .\Interface\Led\Int_Led.h

@@ -3,16 +3,40 @@
 static uint8_t us_count = 0; // us延时计数器
 static uint8_t ms_count = 0; // ms延时计数器
 
+#define SYSTICK_CLK    72000000UL  // 72MHz系统时钟
+#define SYSTICK_CLK_DIV8 (SYSTICK_CLK / 8)  // SysTick时钟 = 9MHz
+
 void Dri_Systick_Init(void)
 {
+    debuge_printf("Dri_Systick_Init\n");
     SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8); // 选择HCLK/8作为SysTick时钟源
 
-    SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk; // 使能SysTick中断
+    //SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk; // 使能SysTick中断
 
     us_count = SYSTICK_CLK / 8000000; // 9
 
+    // us_count=9;
+
+    debuge_printf("us_count = %d\n", us_count);
+
+    // for(uint32_t i = 0; i < 1000000; i++); 
+
     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk; // 关闭定时器
+
+
+
+    //     // 必须在USART初始化之后调用！
+    // debuge_printf("Dri_Systick_Init\n");
+    
+    // SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8); // HCLK/8 = 9MHz
+    // us_count = SYSTICK_CLK_DIV8 / 1000000; // 9MHz / 1MHz = 9
+    
+    // debuge_printf("us_count = %d\n", us_count);
+    
+    // SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk; // 关闭定时器
+
 }
+
 
 void Dri_Systick_Delay_us(uint32_t us)
 {
@@ -34,7 +58,8 @@ void Dri_Systick_Delay_us(uint32_t us)
 
     // SysTick->VAL = 0x00; // 将SysTick定时器计数器设为0x00，使定时器从0开始计数
 
-    uint32_t load = us * us_count;
+	//debuge_printf("us_c = %d\n", us_count);
+    uint32_t load = us * us_count  ;
     if (load > 0xFFFFFF)
         load = 0xFFFFFF;
 
