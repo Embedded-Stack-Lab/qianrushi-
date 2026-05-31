@@ -17,11 +17,14 @@ uint16_t touch_data_read[5] = {0x06, 0x08};
 {
 
     app_Init();
-    
+  	//debuge_printf(".....");  
+	
     while (1)
     {
         app_LED_PWM();
-        Dri_BaseTime_DelayMs(10);
+			//debuge_printf(".....");
+        // Dri_BaseTime_DelayMs(10);
+        Dri_Systick_Delay_ms(100);
     }
     
 }

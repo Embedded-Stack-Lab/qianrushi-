@@ -168,7 +168,7 @@ static void Dri_DMA_Init(void)
     DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
     DMA_InitStructure.DMA_Priority = DMA_Priority_High;
     DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
-    
+       
     DMA_Init(DMA1_Channel1, &DMA_InitStructure);
 }
 
@@ -211,7 +211,7 @@ void Dri_Tim5_Init(void)
 
     // 2. 配置 PA1 引脚模式 [复用推挽输出]
     GPIO_InitTypeDef GPIO_InitStructure;
-    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_1;
+    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_1      ;
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP; // 复用推挽输出
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA, &GPIO_InitStructure);

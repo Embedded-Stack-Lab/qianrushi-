@@ -1,14 +1,10 @@
 >>> cc
 
-".\Driver\Systick\Dri_Systick.c", line 4: Warning:  #177-D: variable "ms_count"  was declared but never referenced
-  static uint8_t ms_count = 0; // ms延时计数�?
-                 ^
-.\Driver\Systick\Dri_Systick.c: 1 warning, 0 errors
 
 
 >>> ld
 
-Error: L6218E: Undefined symbol Dri_ADC1_DMA_Start (referred from main.o).
-Error: L6218E: Undefined symbol Dri_ADC_DMA_Start (referred from main.o).
+Error: L6218E: Undefined symbol app_Init (referred from main.o).
+Error: L6218E: Undefined symbol app_LED_PWM (referred from main.o).
 Not enough information to list image symbols.
 Finished: 1 information, 0 warning and 2 error messages.

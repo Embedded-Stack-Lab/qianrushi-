@@ -28,3 +28,5 @@
 .\build\Target 1\.obj\Driver\Systick\Dri_Systick.o: Library\stm32f10x_usart.h
 .\build\Target 1\.obj\Driver\Systick\Dri_Systick.o: Library\stm32f10x_wwdg.h
 .\build\Target 1\.obj\Driver\Systick\Dri_Systick.o: Library\misc.h
+.\build\Target 1\.obj\Driver\Systick\Dri_Systick.o: Common/Debug/Common_Deebug.h
+.\build\Target 1\.obj\Driver\Systick\Dri_Systick.o: Driver/Usart/Dri_usart.h

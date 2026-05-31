@@ -30,4 +30,8 @@
 .\build\Target 1\.obj\User\main.o: Driver/Usart/Dri_usart.h
 .\build\Target 1\.obj\User\main.o: Common/Debug/Common_Deebug.h
 .\build\Target 1\.obj\User\main.o: Driver/ADC/Dri_ADC.h
+.\build\Target 1\.obj\User\main.o: Driver/BaseTime/Dri_Basetime.h
 .\build\Target 1\.obj\User\main.o: Driver/Systick/Dri_Systick.h
+.\build\Target 1\.obj\User\main.o: .\User\app.h
+.\build\Target 1\.obj\User\main.o: Interface/key/Int_key.h
+.\build\Target 1\.obj\User\main.o: Interface/Led/Int_Led.h
